@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="tekst" id="veld" cols="30" rows="10" onkeyup="pagina();">
+    </textarea>
+    <p>
+        <b>aantal letters:</b><span id="letters">...</span>
+    </p>
+    <p>
+        <b>aantal woorden:</b><span id="woorden">...</span>
+    </p>
+    <p>
+        <b>laatste woord:</b><span id="laatste">...</span>
+    </p>
+    <p>
+        <b>'Syntra' komt voor:</b><span id="syntra">...</span>
+    </p>
+
+    <button onclick="pagina();">To Uppercase</button>
+    <button>To Lowercase</button>
+
+
+    <script>
+    var veld= document.querySelector("#veld");
+    var letters= document.querySelector("#letters");
+    var woorden= document.querySelector("#woorden");
+    var laatste= document.querySelector("#laatste");
+    var syntra= document.querySelector("#syntra");
+
+    function pagina(){
+        console.log(veld.value.length);
+        letters.innerHTML=veld.value.length;
+
+
+        var array=veld.value.split(" ");
+        var aantalWoorden= array.length;
+        woorden.innerHTML=aantalWoorden;
+
+
+
+
+    }
+
+
+
+    </script>
+</body>
+</html>
