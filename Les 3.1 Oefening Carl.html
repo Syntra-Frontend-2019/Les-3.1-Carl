@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <textarea name="tekst" id="veld" cols="30" rows="10" onkeyup="pagina();">
-    </textarea>
+    <textarea name="tekst" id="veld" cols="30" rows="10" onkeyup="pagina();"></textarea>
     <p>
         <b>aantal letters:</b><span id="letters">...</span>
     </p>
@@ -22,8 +21,8 @@
         <b>'Syntra' komt voor:</b><span id="syntra">...</span>
     </p>
 
-    <button onclick="pagina();">To Uppercase</button>
-    <button>To Lowercase</button>
+    <button onclick="upper();" id="uppercase">To Uppercase</button>
+    <button onclick="lower();" id="lowercase">To Lowercase</button>
 
 
     <script>
@@ -32,19 +31,50 @@
     var woorden= document.querySelector("#woorden");
     var laatste= document.querySelector("#laatste");
     var syntra= document.querySelector("#syntra");
+    /*var uppercase= document.querySelector("#uppercase");
+    var lowercase= document.querySelector("#lowercase")*/
+   
 
     function pagina(){
+
+        //aantal letters
         console.log(veld.value.length);
         letters.innerHTML=veld.value.length;
 
-
+        //aantal woorden
         var array=veld.value.split(" ");
         var aantalWoorden= array.length;
         woorden.innerHTML=aantalWoorden;
 
+        //laatste woord
+        var reverse= array.reverse();
+        var laatsteWoord= reverse[1];
+        laatste.innerHTML= laatsteWoord;
+
+        //Syntra
+        var search= veld.value.search("Syntra");
+        if (search<0){
+            syntra.innerHTML=false;
+        }
+        else{
+            syntra.innerHTML=true;
+        }
+
+    }
 
 
+    //To Uppercase
+    function upper(){
+        var uc= veld.value;
+        veld.value= uc.toUpperCase();
 
+    }
+
+
+    //To Lowercase
+    function lower(){
+        var lc= veld.value;
+        veld.value= lc.toLowerCase();
     }
 
 
